@@ -36,6 +36,16 @@ public class ChangeScene : MonoBehaviour
             }
         }
 
+        GameObject[] musicObj = GameObject.FindGameObjectsWithTag("GameMusic");
+        foreach (GameObject obj in musicObj)
+        {
+            AudioSource musicSource = obj.GetComponent<AudioSource>();
+            if (musicSource != null)
+            {
+                musicSource.mute = false;
+            }
+        }
+
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
